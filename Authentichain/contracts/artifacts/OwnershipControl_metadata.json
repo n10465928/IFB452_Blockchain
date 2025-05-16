@@ -1,0 +1,549 @@
+{
+	"compiler": {
+		"version": "0.8.26+commit.8a97fa7a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_mintContract",
+						"type": "address"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					}
+				],
+				"name": "OwnableInvalidOwner",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					}
+				],
+				"name": "OwnableUnauthorizedAccount",
+				"type": "error"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "mintContractAddress",
+						"type": "address"
+					}
+				],
+				"name": "MintContractAddressSet",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "newContract",
+						"type": "address"
+					}
+				],
+				"name": "MintContractUpdated",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "tokenId",
+						"type": "uint256"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					}
+				],
+				"name": "OwnershipRegistered",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "previousOwner",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "newOwner",
+						"type": "address"
+					}
+				],
+				"name": "OwnershipTransferred",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "tokenId",
+						"type": "uint256"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "from",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "to",
+						"type": "address"
+					}
+				],
+				"name": "OwnershipTransferred",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "recipient",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "bool",
+						"name": "approved",
+						"type": "bool"
+					}
+				],
+				"name": "RecipientApprovalUpdated",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "approvedRecipients",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "tokenId",
+						"type": "uint256"
+					}
+				],
+				"name": "getOwnershipHistory",
+				"outputs": [
+					{
+						"internalType": "address[]",
+						"name": "",
+						"type": "address[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "mintContract",
+				"outputs": [
+					{
+						"internalType": "contract IMintContract",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "mintContractAddress",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "owner",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "ownershipHistory",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "tokenId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					}
+				],
+				"name": "registerInitialOwnership",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "renounceOwnership",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_mintContract",
+						"type": "address"
+					}
+				],
+				"name": "setMintContractAddress",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "recipient",
+						"type": "address"
+					},
+					{
+						"internalType": "bool",
+						"name": "approved",
+						"type": "bool"
+					}
+				],
+				"name": "setRecipientApproval",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "newOwner",
+						"type": "address"
+					}
+				],
+				"name": "transferOwnership",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "tokenId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "newOwner",
+						"type": "address"
+					}
+				],
+				"name": "transferProduct",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "newContract",
+						"type": "address"
+					}
+				],
+				"name": "updateMintContract",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "verifiedOwner",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"details": "- Automatically registers ownership on mint (via MintContract call).      - Only verified owners can initiate a transfer.      - Optionally restricts recipients via allowlist.      - Logs all ownership changes immutably on-chain.",
+			"errors": {
+				"OwnableInvalidOwner(address)": [
+					{
+						"details": "The owner is not a valid owner account. (eg. `address(0)`)"
+					}
+				],
+				"OwnableUnauthorizedAccount(address)": [
+					{
+						"details": "The caller account is not authorized to perform an operation."
+					}
+				]
+			},
+			"kind": "dev",
+			"methods": {
+				"constructor": {
+					"details": "The deployer becomes the system owner and must later assign mintContractAddress for registration.",
+					"params": {
+						"_mintContract": "Address of the deployed MintContract (ERC721-compliant)"
+					}
+				},
+				"getOwnershipHistory(uint256)": {
+					"params": {
+						"tokenId": "Token to query"
+					},
+					"returns": {
+						"_0": "Array of historical owners in chronological order"
+					}
+				},
+				"owner()": {
+					"details": "Returns the address of the current owner."
+				},
+				"registerInitialOwnership(uint256,address)": {
+					"details": "Only callable by MintContract. Can only be called once per token.",
+					"params": {
+						"owner": "Address of the first verified owner (recipient of mint)",
+						"tokenId": "ERC721 token ID"
+					}
+				},
+				"renounceOwnership()": {
+					"details": "Leaves the contract without owner. It will not be possible to call `onlyOwner` functions. Can only be called by the current owner. NOTE: Renouncing ownership will leave the contract without an owner, thereby disabling any functionality that is only available to the owner."
+				},
+				"setMintContractAddress(address)": {
+					"details": "This is separate from the mintContract interface so upgrades remain clean",
+					"params": {
+						"_mintContract": "Address of the trusted MintContract"
+					}
+				},
+				"setRecipientApproval(address,bool)": {
+					"details": "Can be used to enforce whitelisting for transfers or resales",
+					"params": {
+						"approved": "True to allow ownership, false to disallow",
+						"recipient": "The address to update"
+					}
+				},
+				"transferOwnership(address)": {
+					"details": "Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner."
+				},
+				"transferProduct(uint256,address)": {
+					"details": "Caller must be the current verified owner. MintContract executes the transfer.",
+					"params": {
+						"newOwner": "New recipient address",
+						"tokenId": "ERC721 token ID to transfer"
+					}
+				},
+				"updateMintContract(address)": {
+					"details": "Used if the MintContract is upgraded and needs to be re-linked",
+					"params": {
+						"newContract": "Address of the new ERC721 contract"
+					}
+				}
+			},
+			"title": "OwnershipControl",
+			"version": 1
+		},
+		"userdoc": {
+			"events": {
+				"MintContractAddressSet(address)": {
+					"notice": "Emitted when the internal MintContract address used for registration is set"
+				},
+				"MintContractUpdated(address)": {
+					"notice": "Emitted when the MintContract reference is updated"
+				},
+				"OwnershipRegistered(uint256,address)": {
+					"notice": "Emitted when a token is first assigned to an owner"
+				},
+				"OwnershipTransferred(uint256,address,address)": {
+					"notice": "Emitted on every ownership transfer via OwnershipControl"
+				},
+				"RecipientApprovalUpdated(address,bool)": {
+					"notice": "Emitted when recipient allowlist status is updated"
+				}
+			},
+			"kind": "user",
+			"methods": {
+				"approvedRecipients(address)": {
+					"notice": "Optional allowlist to restrict who is eligible to receive token ownership"
+				},
+				"constructor": {
+					"notice": "Initializes the OwnershipControl with a reference to the MintContract."
+				},
+				"getOwnershipHistory(uint256)": {
+					"notice": "Returns the full history of ownership for a given token"
+				},
+				"mintContract()": {
+					"notice": "Reference to the MintContract (implements ERC721)"
+				},
+				"mintContractAddress()": {
+					"notice": "Separate address verification to allow strict internal access control (for registerInitialOwnership)"
+				},
+				"ownershipHistory(uint256,uint256)": {
+					"notice": "Mapping of token ID to a complete chronological list of previous and current owners"
+				},
+				"registerInitialOwnership(uint256,address)": {
+					"notice": "Registers the first verified owner of a token after it is minted"
+				},
+				"setMintContractAddress(address)": {
+					"notice": "Allows the system owner to set the internal mintContractAddress used for registerInitialOwnership()"
+				},
+				"setRecipientApproval(address,bool)": {
+					"notice": "Grants or revokes approval for a specific recipient address"
+				},
+				"transferProduct(uint256,address)": {
+					"notice": "Transfers a product token to a new owner with full audit trail"
+				},
+				"updateMintContract(address)": {
+					"notice": "Updates the MintContract reference (interface)"
+				},
+				"verifiedOwner(uint256)": {
+					"notice": "Mapping of token ID to its current verified owner"
+				}
+			},
+			"notice": "Tracks full ownership history and controls verified transfers of NFTs representing physical goods.",
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/OwnershipControl.sol": "OwnershipControl"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"@openzeppelin/contracts/access/Ownable.sol": {
+			"keccak256": "0xff6d0bb2e285473e5311d9d3caacb525ae3538a80758c10649a4d61029b017bb",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://8ed324d3920bb545059d66ab97d43e43ee85fd3bd52e03e401f020afb0b120f6",
+				"dweb:/ipfs/QmfEckWLmZkDDcoWrkEvMWhms66xwTLff9DDhegYpvHo1a"
+			]
+		},
+		"@openzeppelin/contracts/utils/Context.sol": {
+			"keccak256": "0x493033a8d1b176a037b2cc6a04dad01a5c157722049bbecf632ca876224dd4b2",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://6a708e8a5bdb1011c2c381c9a5cfd8a9a956d7d0a9dc1bd8bcdaf52f76ef2f12",
+				"dweb:/ipfs/Qmax9WHBnVsZP46ZxEMNRQpLQnrdE4dK8LehML1Py8FowF"
+			]
+		},
+		"contracts/OwnershipControl.sol": {
+			"keccak256": "0xf849504b25f0eea7e10ada41ea490ccd3815f113a277f4a5fbe7d560f59c6684",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://c7041db3658a4fb15821a21c78d456045f0d02e853c62f1af45fd8527de33057",
+				"dweb:/ipfs/QmeBVoDeXzfNR4v5FDJT5oxYS8zPKgwv5wBqmTQrETpL7y"
+			]
+		}
+	},
+	"version": 1
+}

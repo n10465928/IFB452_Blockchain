@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        div {
+            width: 20%;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        button {
+            width: 100%;
+            margin: 10px 0px 5px 0px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <h1>This is my dApp!</h1>
+        <p>Here you can set or get your name:</p>
+        <label for="name">Input Your Name:</label><br/>
+        <input type="text" id="name" />
+        <button onclick="setName()">Set Name</button>
+        <button onclick="getName()">Get Name</button>
+        <!-- NEW: where we’ll show the fetched name -->
+        <p id="nameDisplay" style="margin-top:1em; font-weight:bold;"></p>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.umd.min.js"></script>
+
+    <script>
+
+        const provider = new ethers.providers.Web3Provider(window.ethereum);
+
+        const NameContractAddress = "0x5b1869d9a4c187f2eaa108f3062412ecf0526b24";
+        const NameContractABI = [
+                {
+                    "inputs": [
+                        {
+                            "internalType": "string",
+                            "name": "_name",
+                            "type": "string"
+                        }
+                    ],
+                    "name": "setName",
+                    "outputs": [],
+                    "stateMutability": "nonpayable",
+                    "type": "function"
+                },
+                {
+                    "inputs": [],
+                    "name": "getName",
+                    "outputs": [
+                        {
+                            "internalType": "string",
+                            "name": "",
+                            "type": "string"
+                        }
+                    ],
+                    "stateMutability": "view",
+                    "type": "function"
+                },
+                {
+                    "inputs": [],
+                    "name": "storeName",
+                    "outputs": [
+                        {
+                            "internalType": "string",
+                            "name": "",
+                            "type": "string"
+                        }
+                    ],
+                    "stateMutability": "view",
+                    "type": "function"
+                }
+            ];
+
+        let NameContract;
+        let signer;
+
+        provider.send("eth_requestAccounts", []).then(() => {
+            provider.listAccounts().then(function (accounts) {
+                console.log("accounts", accounts);
+                signer = provider.getSigner(accounts[0]);
+                NameContract = new ethers.Contract(
+                    NameContractAddress,
+                    NameContractABI,
+                    signer
+                );
+            });
+        });
+
+        async function getName() {
+            try {
+                const onChainName = await NameContract.getName();
+                // render it:
+                document.getElementById('nameDisplay').innerText = 
+                onChainName
+                    ? `Stored name: ${onChainName}`
+                    : 'No name set yet';
+            } catch (err) {
+                console.error('Error reading name:', err);
+                document.getElementById('nameDisplay').innerText = 
+                'Failed to fetch name—see console.';
+            }
+        }
+
+
+        async function setName() {
+            const name = document.getElementById("name").value;
+            const setNamePromise = NameContract.setName(name);
+            await setNamePromise;
+        }
+
+
+    </script>
+</body>
+
+</html>
