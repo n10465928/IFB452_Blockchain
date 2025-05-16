@@ -517,6 +517,19 @@
 				"type": "function"
 			},
 			{
+				"inputs": [],
+				"name": "ownershipControl",
+				"outputs": [
+					{
+						"internalType": "contract IOwnershipControl",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
 				"inputs": [
 					{
 						"internalType": "uint256",
@@ -637,6 +650,19 @@
 			{
 				"inputs": [
 					{
+						"internalType": "address",
+						"name": "_ownershipControl",
+						"type": "address"
+					}
+				],
+				"name": "setOwnershipControl",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
 						"internalType": "bytes4",
 						"name": "interfaceId",
 						"type": "bytes4"
@@ -736,7 +762,7 @@
 			}
 		],
 		"devdoc": {
-			"details": "- Each NFT is linked to material IDs (ERC1155) from MaterialTrackingContract.      - Minting is permissioned and materials are burned on mint to enforce provenance.",
+			"details": "- Each NFT is linked to material IDs (ERC1155) from MaterialTrackingContract.      - Minting is permissioned and materials are burned on mint to enforce provenance.      - Automatically registers initial ownership in OwnershipControl.",
 			"errors": {
 				"ERC721IncorrectOwner(address,uint256,address)": [
 					{
@@ -896,6 +922,11 @@
 						"manufacturer": "Address to grant or revoke minting permission"
 					}
 				},
+				"setOwnershipControl(address)": {
+					"params": {
+						"_ownershipControl": "Address of deployed OwnershipControl contract"
+					}
+				},
 				"supportsInterface(bytes4)": {
 					"details": "See {IERC165-supportsInterface}"
 				},
@@ -947,11 +978,17 @@
 				"mintProduct(address,uint256[],string)": {
 					"notice": "Mints a new luxury product NFT after verifying and consuming raw materials"
 				},
+				"ownershipControl()": {
+					"notice": "Reference to the deployed OwnershipControl contract"
+				},
 				"productToMaterials(uint256,uint256)": {
 					"notice": "Maps product ID to the array of material token IDs used in its manufacture"
 				},
 				"setManufacturerApproval(address,bool)": {
 					"notice": "Approves or revokes a manufacturer to mint product NFTs"
+				},
+				"setOwnershipControl(address)": {
+					"notice": "Sets the OwnershipControl contract used for auto-registering NFT ownership"
 				},
 				"updateMaterialContract(address)": {
 					"notice": "Updates the reference to the MaterialTrackingContract (upgrade safe)"
@@ -963,7 +1000,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/MintContract.sol": "MintContract"
+			"Authentichain/contracts/MintContract.sol": "MintContract"
 		},
 		"evmVersion": "cancun",
 		"libraries": {},
@@ -1129,12 +1166,12 @@
 				"dweb:/ipfs/QmVUSvooZKEdEdap619tcJjTLcAuH6QBdZqAzWwnAXZAWJ"
 			]
 		},
-		"contracts/MintContract.sol": {
-			"keccak256": "0x4d3720fd6ac56e7a690d705bd9e63d5a0e4aca35cb5c5ff7ee31da547224bd81",
+		"Authentichain/contracts/MintContract.sol": {
+			"keccak256": "0xf4f39e027087392de64050e1881326c38c3ed6f2102b41cd20b8163443caa5f0",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://b882ff132ed8c94391560e2337dc2f3195498fc6180836998c5dd1851a49caf6",
-				"dweb:/ipfs/QmatrhTLyywXL8pSydp5CSq3USDzQaDBNZsH2e8nkhKSsg"
+				"bzz-raw://e0e1a666fb41e3406a925c5b5f74fccc5d1ec4ace6f1b1d53151c2eba4945d2c",
+				"dweb:/ipfs/QmVkJYX7RCbLt59KnZjNHFMKGNsb9BdkWcw29hRKxuK1k8"
 			]
 		}
 	},

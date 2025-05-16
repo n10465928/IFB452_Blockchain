@@ -84,6 +84,7 @@ contract MintContract is ERC721URIStorage, Ownable {
         materialContract = IMaterialTracking(_materialContract);
     }
 
+
     // ========== ACCESS CONTROL ==========
 
     /**

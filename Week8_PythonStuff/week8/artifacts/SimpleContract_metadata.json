@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.18+commit.87f61d96"
+		"version": "0.8.26+commit.8a97fa7a"
 	},
 	"language": "Solidity",
 	"output": {
@@ -58,9 +58,9 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"Week 8 - NameApp.sol": "SimpleContract"
+			"Week8_PythonStuff/week8/Week 8 - NameApp.sol": "SimpleContract"
 		},
-		"evmVersion": "paris",
+		"evmVersion": "cancun",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
@@ -72,7 +72,7 @@
 		"remappings": []
 	},
 	"sources": {
-		"Week 8 - NameApp.sol": {
+		"Week8_PythonStuff/week8/Week 8 - NameApp.sol": {
 			"keccak256": "0x078a7944d16c585371a264524cbd8f80a2b0c0377cf0226b3f3bd6f15743dd82",
 			"license": "MIT",
 			"urls": [

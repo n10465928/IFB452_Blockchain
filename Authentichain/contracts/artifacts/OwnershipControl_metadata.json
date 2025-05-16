@@ -506,7 +506,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/OwnershipControl.sol": "OwnershipControl"
+			"Authentichain/contracts/OwnershipControl.sol": "OwnershipControl"
 		},
 		"evmVersion": "cancun",
 		"libraries": {},
@@ -536,7 +536,7 @@
 				"dweb:/ipfs/Qmax9WHBnVsZP46ZxEMNRQpLQnrdE4dK8LehML1Py8FowF"
 			]
 		},
-		"contracts/OwnershipControl.sol": {
+		"Authentichain/contracts/OwnershipControl.sol": {
 			"keccak256": "0xf849504b25f0eea7e10ada41ea490ccd3815f113a277f4a5fbe7d560f59c6684",
 			"license": "MIT",
 			"urls": [

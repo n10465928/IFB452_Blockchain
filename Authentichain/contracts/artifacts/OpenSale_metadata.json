@@ -368,7 +368,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/OpenSale.sol": "OpenSale"
+			"Authentichain/contracts/OpenSale.sol": "OpenSale"
 		},
 		"evmVersion": "cancun",
 		"libraries": {},
@@ -406,7 +406,7 @@
 				"dweb:/ipfs/Qmax9WHBnVsZP46ZxEMNRQpLQnrdE4dK8LehML1Py8FowF"
 			]
 		},
-		"contracts/OpenSale.sol": {
+		"Authentichain/contracts/OpenSale.sol": {
 			"keccak256": "0xe0b1650df416f49af6e89416d000e8f3bb62d4238e2e296921bb0cef5dc3c56a",
 			"license": "MIT",
 			"urls": [

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Authentichain dApp</title>
+  <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.umd.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      display: flex;
+      height: 100vh;
+      background-color: #f4f4f9;
+    }
+
+    nav {
+      width: 220px;
+      background-color: #2e3b4e;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+    }
+
+    nav h2 {
+      margin-bottom: 20px;
+      font-size: 1.2rem;
+    }
+
+    nav button {
+      background: none;
+      border: none;
+      color: #fff;
+      padding: 12px;
+      text-align: left;
+      font-size: 1rem;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    nav button:hover,
+    nav button.active {
+      background-color: #4b5d75;
+    }
+
+    main {
+      flex: 1;
+      padding: 30px;
+      overflow-y: auto;
+    }
+
+    h1 {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    section {
+      display: none;
+    }
+
+    section.active {
+      display: block;
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: 600;
+      color: #444;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    button.action-btn {
+      margin-top: 20px;
+      padding: 12px 20px;
+      background-color: #0066ff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    button.action-btn:hover {
+      background-color: #0052cc;
+    }
+
+    .feedback {
+      margin-top: 10px;
+      color: green;
+      font-weight: 600;
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <h2>Authentichain</h2>
+    <button class="nav-btn active" onclick="showTab('material')">➤ Mint Material</button>
+    <button class="nav-btn" onclick="showTab('mint')">➤ Mint Product</button>
+    <button class="nav-btn" onclick="showTab('sale')">➤ Purchase Product</button>
+  </nav>
+
+  <main>
+    <section id="material" class="active">
+      <h1>Mint Raw Material</h1>
+      <label for="origin">Origin</label>
+      <input id="origin" placeholder="e.g., Australia">
+
+      <label for="supplier">Supplier</label>
+      <input id="supplier" placeholder="e.g., GoldCorp">
+
+      <label for="weight">Weight</label>
+      <input id="weight" placeholder="e.g., 5">
+
+      <label for="purity">Purity</label>
+      <input id="purity" placeholder="e.g., 99.99%">
+
+      <label for="certHash">Certificate Hash</label>
+      <input id="certHash" placeholder="e.g., Qm...">
+
+      <button class="action-btn" onclick="mintMaterial()">Mint Material</button>
+      <p class="feedback" id="feedbackMaterial"></p>
+    </section>
+
+    <section id="mint">
+      <h1>Mint Luxury Product NFT</h1>
+      <label for="to">Recipient Address</label>
+      <input id="to" placeholder="e.g., 0x...">
+
+      <label for="materialIds">Material IDs (comma-separated)</label>
+      <input id="materialIds" placeholder="e.g., 1,2">
+
+      <label for="metadataURI">Metadata URI</label>
+      <input id="metadataURI" placeholder="e.g., IPFS link">
+
+      <button class="action-btn" onclick="mintProduct()">Mint Product</button>
+      <p class="feedback" id="feedbackProduct"></p>
+    </section>
+
+    <section id="sale">
+      <h1>Purchase Product NFT</h1>
+      <label for="purchaseTokenId">Token ID</label>
+      <input id="purchaseTokenId" placeholder="e.g., 1">
+
+      <label for="priceWei">Price in Wei</label>
+      <input id="priceWei" placeholder="e.g., 10000000000000000">
+
+      <button class="action-btn" onclick="purchaseProduct()">Buy Product</button>
+      <p class="feedback" id="feedbackSale"></p>
+    </section>
+  </main>
+
+  <script>
+    const tabs = document.querySelectorAll('section');
+    const buttons = document.querySelectorAll('.nav-btn');
+
+    function showTab(id) {
+      tabs.forEach(tab => tab.classList.remove('active'));
+      buttons.forEach(btn => btn.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+      event.target.classList.add('active');
+    }
+  </script>
+  <script type="module" src="./app.js"></script>
+</body>
+
+</html>

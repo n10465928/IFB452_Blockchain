@@ -1043,7 +1043,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/MaterialTrackingContract.sol": "MaterialTrackingContract"
+			"Authentichain/contracts/MaterialTrackingContract.sol": "MaterialTrackingContract"
 		},
 		"evmVersion": "cancun",
 		"libraries": {},
@@ -1201,7 +1201,7 @@
 				"dweb:/ipfs/QmPFKL2r9CBsMwmUqqdcFPfHZB2qcs9g1HDrPxzWSxomvy"
 			]
 		},
-		"contracts/MaterialTrackingContract.sol": {
+		"Authentichain/contracts/MaterialTrackingContract.sol": {
 			"keccak256": "0x47708a0fccd2576dc5d33f2389df1c8aa45c68d82c580d8c5dfdb29b13807265",
 			"license": "MIT",
 			"urls": [

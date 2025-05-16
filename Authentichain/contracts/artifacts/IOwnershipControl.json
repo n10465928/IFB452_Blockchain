@@ -49,8 +49,7 @@
 		},
 		"gasEstimates": null,
 		"methodIdentifiers": {
-			"transferProduct(uint256,address)": "e43059e5",
-			"verifiedOwner(uint256)": "005a9931"
+			"registerInitialOwnership(uint256,address)": "8341ef11"
 		}
 	},
 	"abi": [
@@ -63,32 +62,13 @@
 				},
 				{
 					"internalType": "address",
-					"name": "newOwner",
+					"name": "owner",
 					"type": "address"
 				}
 			],
-			"name": "transferProduct",
+			"name": "registerInitialOwnership",
 			"outputs": [],
 			"stateMutability": "nonpayable",
-			"type": "function"
-		},
-		{
-			"inputs": [
-				{
-					"internalType": "uint256",
-					"name": "tokenId",
-					"type": "uint256"
-				}
-			],
-			"name": "verifiedOwner",
-			"outputs": [
-				{
-					"internalType": "address",
-					"name": "",
-					"type": "address"
-				}
-			],
-			"stateMutability": "view",
 			"type": "function"
 		}
 	]

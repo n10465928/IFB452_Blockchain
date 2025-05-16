@@ -107,7 +107,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/MintContract.sol": "IMaterialTracking"
+			"Authentichain/contracts/MintContract.sol": "IMaterialTracking"
 		},
 		"evmVersion": "cancun",
 		"libraries": {},
@@ -273,12 +273,12 @@
 				"dweb:/ipfs/QmVUSvooZKEdEdap619tcJjTLcAuH6QBdZqAzWwnAXZAWJ"
 			]
 		},
-		"contracts/MintContract.sol": {
-			"keccak256": "0x4d3720fd6ac56e7a690d705bd9e63d5a0e4aca35cb5c5ff7ee31da547224bd81",
+		"Authentichain/contracts/MintContract.sol": {
+			"keccak256": "0xf4f39e027087392de64050e1881326c38c3ed6f2102b41cd20b8163443caa5f0",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://b882ff132ed8c94391560e2337dc2f3195498fc6180836998c5dd1851a49caf6",
-				"dweb:/ipfs/QmatrhTLyywXL8pSydp5CSq3USDzQaDBNZsH2e8nkhKSsg"
+				"bzz-raw://e0e1a666fb41e3406a925c5b5f74fccc5d1ec4ace6f1b1d53151c2eba4945d2c",
+				"dweb:/ipfs/QmVkJYX7RCbLt59KnZjNHFMKGNsb9BdkWcw29hRKxuK1k8"
 			]
 		}
 	},
