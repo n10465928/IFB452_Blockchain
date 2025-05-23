@@ -1,11 +1,6 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.16;
 
-// OpenZeppelin ERC1155 standard with burn extension
-//import "@openzeppelin/contracts/token/ERC1155/extensions/ERC1155Burnable.sol";
-
-// Ownable contract allows only the deployer (regulator) to mint or authorize
-//import "@openzeppelin/contracts/access/Ownable.sol";
 
 // import to support older compiler
 import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/v4.7.3/contracts/token/ERC1155/extensions/ERC1155Burnable.sol";

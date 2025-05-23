@@ -1,9 +1,10 @@
-// SPDX-License-Identifier: MIT
-pragma solidity ^0.8.26;
 
-// OpenZeppelin ERC721 implementation with URI support per token
-import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
-import "@openzeppelin/contracts/access/Ownable.sol";
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.16;
+
+import "https://raw.githubusercontent.com/OpenZeppelin/openzeppelin-contracts/v4.7.3/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
+import "https://raw.githubusercontent.com/OpenZeppelin/openzeppelin-contracts/v4.7.3/contracts/access/Ownable.sol";
+
 
 /**
  * @title IMaterialTracking
@@ -79,7 +80,7 @@ contract MintContract is ERC721URIStorage, Ownable {
      */
     constructor(address _materialContract)
         ERC721("AuthentichainProduct", "AUTH-P")
-        Ownable(msg.sender)
+        
     {
         materialContract = IMaterialTracking(_materialContract);
     }

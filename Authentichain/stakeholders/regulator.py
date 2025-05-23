@@ -1,6 +1,6 @@
 import sys, os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
-from common import web3, material_contract
+from common import web3, material_contract, MINT_CONTRACT_ADDRESS
 
 
 # Replace this with a Ganache private key of the contract owner
@@ -35,7 +35,6 @@ def mint_material():
 def approve_burner():
     print("🔐 Approving MintContract to burn materials...")
 
-    MINT_CONTRACT_ADDRESS = "0xYourMintContractAddress"  # Update to match common.py
     nonce = web3.eth.get_transaction_count(REGULATOR_ADDRESS)
     tx = material_contract.functions.setBurnerApproval(MINT_CONTRACT_ADDRESS, True).build_transaction({
         'from': REGULATOR_ADDRESS,
@@ -45,11 +44,11 @@ def approve_burner():
     })
 
     signed_tx = web3.eth.account.sign_transaction(tx, private_key=REGULATOR_PRIVATE_KEY)
-    tx_hash = web3.eth.send_raw_transaction(signed_tx.rawTransaction)
+    tx_hash = web3.eth.send_raw_transaction(signed_tx.raw_transaction)
     receipt = web3.eth.wait_for_transaction_receipt(tx_hash)
 
     print(f"✅ MintContract approved as burner | Tx Hash: {tx_hash.hex()}")
 
 if __name__ == "__main__":
     mint_material()
-    # approve_burner()
+    approve_burner()
