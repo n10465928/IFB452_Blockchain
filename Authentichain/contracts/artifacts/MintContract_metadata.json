@@ -747,7 +747,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/MintContract.sol": "MintContract"
+			"Authentichain/contracts/MintContract.sol": "MintContract"
 		},
 		"evmVersion": "london",
 		"libraries": {},
@@ -761,7 +761,7 @@
 		"remappings": []
 	},
 	"sources": {
-		"contracts/MintContract.sol": {
+		"Authentichain/contracts/MintContract.sol": {
 			"keccak256": "0xb8ae18f3886949fb786ffb22e185e5e2b4ad531588eaed01c05da329d966f358",
 			"license": "MIT",
 			"urls": [
