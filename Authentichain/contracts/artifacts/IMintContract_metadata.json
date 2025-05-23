@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.26+commit.8a97fa7a"
+		"version": "0.8.30+commit.73712a01"
 	},
 	"language": "Solidity",
 	"output": {
@@ -63,9 +63,9 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"Authentichain/contracts/OwnershipControl.sol": "IMintContract"
+			"contracts/OwnershipControl.sol": "IMintContract"
 		},
-		"evmVersion": "cancun",
+		"evmVersion": "prague",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
@@ -93,12 +93,12 @@
 				"dweb:/ipfs/Qmax9WHBnVsZP46ZxEMNRQpLQnrdE4dK8LehML1Py8FowF"
 			]
 		},
-		"Authentichain/contracts/OwnershipControl.sol": {
-			"keccak256": "0xf849504b25f0eea7e10ada41ea490ccd3815f113a277f4a5fbe7d560f59c6684",
+		"contracts/OwnershipControl.sol": {
+			"keccak256": "0x39bca39e707dc5720e67051f59a1ab159a08b85e170e30147493519d7e0c0398",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://c7041db3658a4fb15821a21c78d456045f0d02e853c62f1af45fd8527de33057",
-				"dweb:/ipfs/QmeBVoDeXzfNR4v5FDJT5oxYS8zPKgwv5wBqmTQrETpL7y"
+				"bzz-raw://3f06e62a924506025faef1ace52c7dcdc74fb1d096c2654d6e234dc02a4187c3",
+				"dweb:/ipfs/QmRChqX1bRaFi3Qvm9R3YbEXnJCwh4fUkCbbRuxH46Jfyy"
 			]
 		}
 	},
