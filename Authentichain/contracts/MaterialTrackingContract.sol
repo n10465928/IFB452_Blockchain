@@ -1,11 +1,16 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.26;
+pragma solidity ^0.8.16;
 
 // OpenZeppelin ERC1155 standard with burn extension
-import "@openzeppelin/contracts/token/ERC1155/extensions/ERC1155Burnable.sol";
+//import "@openzeppelin/contracts/token/ERC1155/extensions/ERC1155Burnable.sol";
 
 // Ownable contract allows only the deployer (regulator) to mint or authorize
-import "@openzeppelin/contracts/access/Ownable.sol";
+//import "@openzeppelin/contracts/access/Ownable.sol";
+
+// import to support older compiler
+import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/v4.7.3/contracts/token/ERC1155/extensions/ERC1155Burnable.sol";
+import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/v4.7.3/contracts/access/Ownable.sol";
+
 
 /**
  * @title MaterialTrackingContract
@@ -64,7 +69,9 @@ contract MaterialTrackingContract is ERC1155Burnable, Ownable {
      * @notice Initializes the contract with empty URI and sets msg.sender as system owner.
      * @dev ERC1155("") uses an empty base URI. Individual metadata is stored off-chain and indexed via ID.
      */
-    constructor() Ownable(msg.sender) ERC1155("") {}
+    //constructor() Ownable(msg.sender) ERC1155("") {}
+    constructor() ERC1155("") {}
+
 
     // ========== CORE FUNCTIONALITY ==========
 
@@ -108,7 +115,7 @@ contract MaterialTrackingContract is ERC1155Burnable, Ownable {
      */
     function getMaterial(uint256 id) external view returns (Material memory) {
         return materials[id];
-    }
+    } 
 
     /**
      * @notice Allows the owner to override the base URI if using dynamic metadata hosting

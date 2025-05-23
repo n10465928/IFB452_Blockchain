@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.26+commit.8a97fa7a"
+		"version": "0.8.30+commit.73712a01"
 	},
 	"language": "Solidity",
 	"output": {
@@ -107,9 +107,9 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"Authentichain/contracts/MintContract.sol": "IMaterialTracking"
+			"contracts/MintContract.sol": "IMaterialTracking"
 		},
-		"evmVersion": "cancun",
+		"evmVersion": "prague",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
@@ -273,12 +273,12 @@
 				"dweb:/ipfs/QmVUSvooZKEdEdap619tcJjTLcAuH6QBdZqAzWwnAXZAWJ"
 			]
 		},
-		"Authentichain/contracts/MintContract.sol": {
-			"keccak256": "0xf4f39e027087392de64050e1881326c38c3ed6f2102b41cd20b8163443caa5f0",
+		"contracts/MintContract.sol": {
+			"keccak256": "0x9f1d6e113859409daf497d6b0c399d356b12db051e284a49e088ae7c940798d9",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://e0e1a666fb41e3406a925c5b5f74fccc5d1ec4ace6f1b1d53151c2eba4945d2c",
-				"dweb:/ipfs/QmVkJYX7RCbLt59KnZjNHFMKGNsb9BdkWcw29hRKxuK1k8"
+				"bzz-raw://50676bd222321ba094f463633236191b4e5713053393e8e5a3fa70f228556bf1",
+				"dweb:/ipfs/QmfMgHvyvpiDjhrJqZD4gR7cQFmM8xgtZexEfLqhkYFUtb"
 			]
 		}
 	},
