@@ -52,15 +52,12 @@ def approve_burner():
 
     print(f"✅ MintContract approved as burner | Tx Hash: {tx_hash.hex()}")
 
-from web3._utils.events import get_event_data
 
 def get_all_material_ids():
     print("🔍 Fetching all minted material IDs...")
 
     # Event signature must match Solidity exactly
     event_signature = "MaterialMinted(uint256,string,string,uint256,string,string,address)"
-    
-    # ✅ Add 0x prefix
     event_signature_hash = "0x" + web3.keccak(text=event_signature).hex()
 
     try:
@@ -114,7 +111,7 @@ def get_material_info():
 from common import mint_contract  # Import mint_contract if not already
 
 def approve_manufacturer():
-    print(f"🛂 Approving manufacturer: {MANUFACTURER_ADDRESS}")
+    print(f"🛂 Approving manufacturer to mint products: {MANUFACTURER_ADDRESS}")
 
     nonce = web3.eth.get_transaction_count(REGULATOR_ADDRESS)
     tx = mint_contract.functions.setManufacturerApproval(MANUFACTURER_ADDRESS, True).build_transaction({
@@ -131,10 +128,47 @@ def approve_manufacturer():
     print(f"✅ Manufacturer approved | Tx Hash: {tx_hash.hex()}")
 
 
+def transfer_material_to_manufacturer():
+    try:
+        material_id = int(input("🔢 Enter the Material ID to transfer: ").strip())
+        amount = int(input("📦 Enter how many units to transfer: ").strip())
+    except ValueError:
+        print("❌ Invalid input. Please enter numeric values.")
+        return
+
+    print(f"🚚 Transferring Material ID {material_id} ({amount} units) to manufacturer {MANUFACTURER_ADDRESS}")
+
+    try:
+        nonce = web3.eth.get_transaction_count(REGULATOR_ADDRESS)
+
+        tx = material_contract.functions.safeTransferFrom(
+            REGULATOR_ADDRESS,
+            MANUFACTURER_ADDRESS,
+            material_id,
+            amount,
+            b""
+        ).build_transaction({
+            'from': REGULATOR_ADDRESS,
+            'nonce': nonce,
+            'gas': 200000,
+            'gasPrice': web3.to_wei("1", "gwei")
+        })
+
+        signed_tx = web3.eth.account.sign_transaction(tx, private_key=REGULATOR_PRIVATE_KEY)
+        tx_hash = web3.eth.send_raw_transaction(signed_tx.raw_transaction)
+        receipt = web3.eth.wait_for_transaction_receipt(tx_hash)
+
+        print(f"✅ Material transferred | Tx Hash: {tx_hash.hex()}")
+
+    except Exception as e:
+        print(f"❌ Transfer failed: {e}")
+
+
 if __name__ == "__main__":
-    #mint_material()
-    #approve_burner()
-    #get_all_material_ids()
-    #get_material_info()
+    # mint_material()
+    # approve_burner()
+    get_all_material_ids()
+    get_material_info()
     approve_manufacturer()
+    transfer_material_to_manufacturer()
 
